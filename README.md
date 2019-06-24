@@ -1,6 +1,6 @@
 # Marmara-v1.1-Kurulumu-Komodo-setup
 
-# Kurulum sonrası Kredi Döngüsü yapabilmek ve test edebilmek için aşağıdaki dökümanı ziyaret edebilirsiniz.
+Kurulum sonrası Kredi Döngüsü yapabilmek ve test edebilmek için aşağıdaki dökümanı ziyaret edebilirsiniz.
 https://github.com/marmarachain/Marmara-v1.1-setup/issues/1
 
 
