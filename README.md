@@ -87,18 +87,18 @@ chaine ilk startımızı verelim.
 
 
 **bu şekilde çıktı alacaksınız. ve burada yazan pubkey i de not alınız.**
-
-> ": true,
-> 	  "address": "RJajZNoEcCRD5wduqt1tna5DiLqiBC23bo",
-> 	  "scriptPubKey": "76a914660a7b5c8ec61c59b80cf8f2184adf8a24bccb6b88ac",
-> 	  "segid": 52,
-> 	  "ismine": true,
-> 	  "iswatchonly": false,
-> 	  "isscript": false,
-> 	  "pubkey": "03a3f641c4679c579b20c597435e8a32d50091bfc56e28303f5eb26fb1cb1eee72",
-> 	  "iscompressed": true,
-> 	  "account": ""
-
+```
+": true,
+"address": "RJajZNoEcCRD5wduqt1tna5DiLqiBC23bo",
+"scriptPubKey": "76a914660a7b5c8ec61c59b80cf8f2184adf8a24bccb6b88ac",
+"segid": 52,
+"ismine": true,
+"iswatchonly": false,
+"isscript": false,
+"pubkey": "03a3f641c4679c579b20c597435e8a32d50091bfc56e28303f5eb26fb1cb1eee72",
+"iscompressed": true,
+"account": ""
+```
 
  oluşturulan pubkeyi niz : `03a3f641c4679c579b20c597435e8a32d50091bfc56e28303f5eb26fb1cb1eee72`
 
@@ -124,9 +124,9 @@ Aşağıki komutu kullanarak çalıştırabilirsiniz. aşağıda ki "-pubkey=pub
 **Marmara Chaini farklı modlarda çalıştırma  seçenekleri.**
 
 ```
-	-genproclimit=-1 Şayet -1 yaparsanız tüm işlemci (CPU) günü kullanır.
-	-genproclimit=1  Şayet 1 yaparsanız tek işlemci kullanır 
-	-genproclimit=0  Şayet 0 yaparsanız Staking modunda çalışır ve Aktif coini kullanarak Staking yaparsınız.
+-genproclimit=-1 Şayet -1 yaparsanız tüm işlemci (CPU) günü kullanır.
+-genproclimit=1  Şayet 1 yaparsanız tek işlemci kullanır 
+-genproclimit=0  Şayet 0 yaparsanız Staking modunda çalışır ve Aktif coini kullanarak Staking yaparsınız.
 
 ```
 
