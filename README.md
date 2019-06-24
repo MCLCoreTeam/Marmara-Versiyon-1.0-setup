@@ -1,5 +1,5 @@
 # Marmara-v1.1-Kurulumu-Komodo-setup
-Marmara v1.1 Kurulumu ve komodo kurulumu
+Marmara v1.1 Kurulumu ve komodo kurulumu ve kullanım dökümanı
 
 **1. kısım - Install the dependency packages**
 ```	sudo apt-get update
