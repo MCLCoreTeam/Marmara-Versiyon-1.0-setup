@@ -146,3 +146,5 @@ cd /komodo/src
 ```
 
 
+İletişim (Contact) B. Gültekin Çetiner http://twitter.com/drcetiner & ~Paro, (c) 2019
+
