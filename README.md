@@ -1,10 +1,10 @@
-# Marmara-v1.1-Kurulumu-Komodo-setup
+# Marmara-v.1.0-Kurulumu-Komodo-setup
 
 Kurulum sonrası Kredi Döngüsü yapabilmek ve test edebilmek için aşağıdaki dökümanı ziyaret edebilirsiniz.
-https://github.com/marmarachain/Marmara-v1.1-setup/issues/1
+https://github.com/marmarachain/Marmara-v.1.0-setup/issues/1
 
 
-Marmara v1.1 Kurulumu ve komodo kurulumu ve kullanım dökümanı
+Marmara v.1.0 Kurulumu ve komodo kurulumu ve kullanım dökümanı
 ----------------------------------------------------------------------------
 **1. kısım - Install the dependency packages**
 ```	sudo apt-get update
