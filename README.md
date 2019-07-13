@@ -50,7 +50,8 @@ Marmara v.1.0 Kurulumu ve komodo kurulumu ve kullanım dökümanı
 	This setting will persist until the next reboot. We can set this value automatically at restart by adding the line to our /etc/sysctl.conf file:
 	sudo nano /etc/sysctl.conf 
 	vm.swappiness=10
-	sudo ufw allow 56141
+	sudo ufw allow 35832
+	sudo ufw allow 35833
 ```
 
 	
