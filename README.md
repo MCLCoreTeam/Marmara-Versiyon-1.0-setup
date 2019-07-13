@@ -14,7 +14,6 @@ Marmara v.1.0 Kurulumu ve komodo kurulumu ve kullanım dökümanı
 	sudo ufw enable
 	sudo apt-get install ssh
 	sudo ufw allow "OpenSSH"
-	sudo ufw allow 56141
 	sudo apt-get install build-essential pkg-config libc6-dev m4 g++-multilib autoconf libtool ncurses-dev unzip git python zlib1g-dev wget bsdmainutils automake libboost-all-dev libssl-dev libprotobuf-dev protobuf-compiler libgtest-dev libqt4-dev libqrencode-dev libdb++-dev ntp ntpdate software-properties-common curl clang libcurl4-gnutls-dev cmake clang -y
 	sudo apt-get install libsodium-dev
 ```
