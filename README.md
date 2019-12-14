@@ -19,12 +19,27 @@ Marmara v.1.0 Kurulumu ve komodo kurulumu ve kullanım dökümanı
 ```
 **2. kısım - Install nanomsg**
 ```	
-        git clone https://github.com/nanomsg/nanomsg
+2. kısım
+	Install nanomsg
+	
+	cd /tmp
+	wget https://github.com/nanomsg/nanomsg/archive/1.0.0.tar.gz -O nanomsg-1.0.0.tar.gz --no-check-certificate
+	tar -xzvf nanomsg-1.0.0.tar.gz
+	cd nanomsg-1.0.0
+	mkdir build
+	cd build
+	cmake .. -DCMAKE_INSTALL_PREFIX=/usr
+	cmake — build .
+	sudo ldconfig
+	
+	2.1
+	git clone https://github.com/nanomsg/nanomsg
 	cd nanomsg
 	cmake .
 	make
 	sudo make install
 	sudo ldconfig
+	
 ```
 **3. kısım - Change swap size on to 4GB (Ubuntu)**
 	
@@ -56,7 +71,7 @@ Marmara v.1.0 Kurulumu ve komodo kurulumu ve kullanım dökümanı
 	
 **5. kısım - Installing Komodo**	
 ```		cd 
-	git clone https://github.com/dimxy/komodo --branch marmara-v1-1 --single-branch
+	git clone https://github.com/dimxy/komodo --branch marmara-v1-1-opret-v2 --single-branch
 	cd komodo
 	./zcutil/fetch-params.sh
 	./zcutil/build.sh -j$(nproc)
