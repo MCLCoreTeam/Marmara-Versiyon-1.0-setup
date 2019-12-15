@@ -90,11 +90,11 @@ src klasorümüze girelim.
   
 chaine ilk startımızı verelim.
 
-	`./komodod -ac_name=MCL3 -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &`
+	`./komodod -ac_name=MARMARATEST -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &`
 
 **ardından bir wallet adresi oluşturup not alınız.**
 
-	`./komodo-cli -ac_name=MCL3 getnewaddress`
+	`./komodo-cli -ac_name=MARMARATEST getnewaddress`
 
 **örnek wallet adresi** 
 
@@ -102,7 +102,7 @@ chaine ilk startımızı verelim.
 
 **aldığımız wallet adresini onaylatıp pubkey oluşturmak için aşağıdaki komutta belirtilen tırnaklar arasına giriniz.**
 
-	`./komodo-cli -ac_name=MCL3 validateaddress "buraya wallet adresinizi giriniz" `
+	`./komodo-cli -ac_name=MARMARATEST validateaddress "buraya wallet adresinizi giriniz" `
 
 
 
@@ -124,21 +124,21 @@ chaine ilk startımızı verelim.
 
 **Chaini  durduruyoruz.**
 
-`./komodo-cli -ac_name=MCL3 stop`
+`./komodo-cli -ac_name=MARMARATEST stop`
 
 **Sırada pubkeyimizi kullanarak chain i Mining modun da çalıştırmak.**
 
 Aşağıki komutu kullanarak çalıştırabilirsiniz. aşağıda ki "-pubkey=pubkeyburayagirilecek"  kısma not aldığınız pubkeyi giriniz. ve komutu komple kopyalayıp terminal de "cd komodo/src" klasöründeyken yapıştırın enterlayın.
 	
-     ./komodod -ac_name=MCL3 -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -gen -genproclimit=2 -pubkey="pubkeyburayagirilecek" &
+     ./komodod -ac_name=MARMARATEST -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -gen -genproclimit=2 -pubkey="pubkeyburayagirilecek" &
 
 **Ve artık mining halde çalışıyor sunucumuz.** 
 
 **mining dökümlerinize aşağıdaki kodları kullanarak ulaşabilirsiniz.**
 
 ```
-./komodo-cli -ac_name=MCL3 getinfo
-./komodo-cli -ac_name=MCL3 marmarainfo 0 0 0 0 //to get details
+./komodo-cli -ac_name=MARMARATEST getinfo
+./komodo-cli -ac_name=MARMARATEST marmarainfo 0 0 0 0 //to get details
 ```
 
 **Marmara Chaini farklı modlarda çalıştırma  seçenekleri.**
@@ -156,8 +156,8 @@ Aşağıki komutu kullanarak çalıştırabilirsiniz. aşağıda ki "-pubkey=pub
 
 ```
 cd /komodo/src
-./komodo-cli -ac_name=MCL3 stop
-./komodod -ac_name=MCL3 -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -gen -genproclimit=2 -pubkey="pubkeyburayagirilecek" &
+./komodo-cli -ac_name=MARMARATEST stop
+./komodod -ac_name=MARMARATEST -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -gen -genproclimit=2 -pubkey="pubkeyburayagirilecek" &
 ```
 
 
