@@ -152,7 +152,7 @@ Aşağıki komutu kullanarak çalıştırabilirsiniz. aşağıda ki "-pubkey=pub
 
 ----------------------------------------------------------------------------
 
-**Not : Sunucu kapanır , reset , çökme , yenileme durumlarında yapılacaklar.**
+**Not : Sunucu kapanma durumunda yapılacaklar.**
 
 ```
 cd /komodo/src
