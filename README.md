@@ -100,9 +100,9 @@ chaine ilk startımızı verelim.
 
    `  RJajZNoEcCRD5wduqt1tna5DiLqiBC23bo`
 
-**aldığımız wallet adresini onaylatıp pubkey oluşturmak için aşağıdaki komutta belirtilen tırnaklar arasına giriniz.**
+**oluşturulan wallet adresini alttaki komuttaki "wallet-adresi" yazan kısma girip enter'a basıyoruz**
 
-	`./komodo-cli -ac_name=MARMARATEST validateaddress "buraya wallet adresinizi giriniz" `
+	`./komodo-cli -ac_name=MARMARATEST validateaddress "wallet-adresi" `
 
 
 
