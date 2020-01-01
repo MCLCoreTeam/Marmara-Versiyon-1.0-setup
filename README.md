@@ -70,11 +70,13 @@ Marmara v.1.0 Kurulumu ve komodo kurulumu ve kullanım dökümanı
 
 	
 **5. kısım - Installing Komodo**	
-```		cd 
-	git clone https://github.com/dimxy/komodo --branch marmara-v1-1-opret-v2 --single-branch
+```
+	cd 
+	git clone https://github.com/jl777/komodo --branch FSM --single-branch
 	cd komodo
 	./zcutil/fetch-params.sh
 	./zcutil/build.sh -j$(nproc)
+
 ```
 
 **Bu sıralamadan sonra her şey normal çalışır vaziyette olacaktır. Marmara Chain sorunsuz vaziyette kullanabilirsiniz.**
