@@ -1,12 +1,28 @@
-# Marmara v.1.0 Kurulumu
+[![Build Status](https://travis-ci.org/KomodoPlatform/komodo.svg?branch=master)](https://travis-ci.org/KomodoPlatform/komodo)
+[![Issues](https://img.shields.io/github/issues-raw/komodoplatform/komodo)](https://github.com/KomodoPlatform/komodo/issues)
+[![PRs](https://img.shields.io/github/issues-pr-closed/komodoplatform/komodo)](https://github.com/KomodoPlatform/komodo/pulls)
+[![Commits](https://img.shields.io/github/commit-activity/y/komodoplatform/komodo)](https://github.com/KomodoPlatform/komodo/commits/dev)
+[![Contributors](https://img.shields.io/github/contributors/komodoplatform/komodo)](https://github.com/KomodoPlatform/komodo/graphs/contributors)
+[![Last Commit](https://img.shields.io/github/last-commit/komodoplatform/komodo)](https://github.com/KomodoPlatform/komodo/graphs/commit-activity)
+
+
+[![gitstars](https://img.shields.io/github/stars/komodoplatform/komodo?style=social)](https://github.com/KomodoPlatform/komodo/stargazers)
+[![twitter](https://img.shields.io/twitter/follow/marmarachain?style=social)](https://twitter.com/marmarachain)
+[![discord](https://img.shields.io/discord/412898016371015680)](https://discord.gg/NzpnAA)
+
+
+![MarmaraCreditLoop Logo](/marmara_coin_logo.png "Marmara Credit Loop Logo")
+
+
+## Marmara v.1.0 Kurulumu
 
 Kurulum sonrası Kredi Döngüsü yapabilmek ve test edebilmek için aşağıdaki dökümanı ziyaret edebilirsiniz.
 https://github.com/marmarachain/Marmara-v.1.0-setup/issues/1
 
 
-Marmara v.1.0 Kurulumu ve kullanım dökümanı
+## Marmara v.1.0 Kurulumu ve kullanım dökümanı
 ----------------------------------------------------------------------------
-**1. kısım - Install the dependency packages**
+## 1. kısım - Install the dependency packages 
 ```	sudo apt-get update
 	sudo apt-get upgrade -y
 	sudo apt install ufw
@@ -17,7 +33,7 @@ Marmara v.1.0 Kurulumu ve kullanım dökümanı
 	sudo apt-get install build-essential pkg-config libc6-dev m4 g++-multilib autoconf libtool ncurses-dev unzip git python zlib1g-dev wget bsdmainutils automake libboost-all-dev libssl-dev libprotobuf-dev protobuf-compiler libgtest-dev libqt4-dev libqrencode-dev libdb++-dev ntp ntpdate software-properties-common curl clang libcurl4-gnutls-dev cmake clang -y
 	sudo apt-get install libsodium-dev
 ```
-**2. kısım - Install nanomsg**
+## 2. kısım - Install nanomsg 
 ```	
 2. kısım
 	Install nanomsg
@@ -41,7 +57,7 @@ Marmara v.1.0 Kurulumu ve kullanım dökümanı
 	sudo ldconfig
 	
 ```
-**3. kısım - Change swap size on to 4GB (Ubuntu)**
+## 3. kısım - Change swap size on to 4GB (Ubuntu) 
 	
 ```
 	sudo swapon --show
@@ -59,7 +75,7 @@ Marmara v.1.0 Kurulumu ve kullanım dökümanı
 	echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 ```
 
-**4 .kısım**
+## 4 .kısım 
 ```	sudo sysctl vm.swappiness=10 
 	This setting will persist until the next reboot. We can set this value automatically at restart by adding the line to our /etc/sysctl.conf file:
 	sudo nano /etc/sysctl.conf 
@@ -69,10 +85,10 @@ Marmara v.1.0 Kurulumu ve kullanım dökümanı
 ```
 
 	
-**5. kısım - Installing Komodo**	
+## 5. kısım - Installing Komodo	
 ```
 	cd 
-	git clone https://github.com/jl777/komodo --branch FSM --single-branch
+	git clone https://github.com/marmarachain/Marmara-v.1.0 komodo --branch FSM --single-branch
 	cd komodo
 	./zcutil/fetch-params.sh
 	./zcutil/build.sh -j$(nproc)
@@ -84,33 +100,30 @@ Marmara v.1.0 Kurulumu ve kullanım dökümanı
 
 Wallet adresi ve Pubkey alıp - pubkey ile Staking mod da başlatma.
 
-**chain e start verelim.**
+## chain e start verelim. 
 
 src klasorümüze girelim.
 
-```cd ~/komodo/src```
+`cd ~/komodo/src`
   
-chaine ilk startımızı verelim.
+## chaine ilk startımızı verelim.
 
-```
-./komodod -ac_name=MARMARATEST -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &
-```
+`./komodod -ac_name=MARMARATEST -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &`
 
-**ardından bir wallet adresi oluşturup not alınız.**
+## ardından bir wallet adresi oluşturup not alınız. 
 
-```./komodo-cli -ac_name=MARMARATEST getnewaddress```
+`./komodo-cli -ac_name=MARMARATEST getnewaddress`
 
-**örnek wallet adresi** 
+## örnek wallet adresi 
 
-```RJajZNoEcCRD5wduqt1tna5DiLqiBC23bo```
+`RJajZNoEcCRD5wduqt1tna5DiLqiBC23bo`
 
-**oluşturulan wallet adresini alttaki komuttaki "wallet-adresi" yazan kısma girip enter'a basıyoruz**
+## oluşturulan wallet adresini alttaki komuttaki "wallet-adresi" yazan kısma girip enter'a basıyoruz 
 
-```./komodo-cli -ac_name=MARMARATEST validateaddress "wallet-adresi" ```
+`./komodo-cli -ac_name=MARMARATEST validateaddress "wallet-adresi"`
 
 
-
-**bu şekilde çıktı alacaksınız. ve burada yazan pubkey i de not alınız.**
+## bu şekilde çıktı alacaksınız. ve burada yazan pubkey i de not alınız. 
 ```
 {
 	": true,
@@ -126,28 +139,30 @@ chaine ilk startımızı verelim.
 }
 ```
 
- oluşturulan pubkeyi niz : `03a3f641c4679c579b20c597435e8a32d50091bfc56e28303f5eb26fb1cb1eee72`
+ oluşturulan pubkeyi niz : 03a3f641c4679c579b20c597435e8a32d50091bfc56e28303f5eb26fb1cb1eee72
 
-**Chaini  durduruyoruz.**
-
-```./komodo-cli -ac_name=MARMARATEST stop```
-
-**Sırada pubkeyimizi kullanarak chain i Mining modun da çalıştırmak.**
+## Chaini  durduruyoruz. 
+```
+./komodo-cli -ac_name=MARMARATEST stop
+```
+## Sırada pubkeyimizi kullanarak chain i Mining modun da çalıştırmak. 
 
 Aşağıki komutu kullanarak çalıştırabilirsiniz. aşağıda ki "-pubkey=pubkeyburayagirilecek"  kısma not aldığınız pubkeyi giriniz. ve alttaki komut satırını düzenledikten sonra "cd komodo/src" klasorüne girip yapıştırın.
 	
-```./komodod -ac_name=MARMARATEST -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -gen -genproclimit=2 -pubkey="pubkeyburayagirilecek" &```
+```
+./komodod -ac_name=MARMARATEST -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -gen -genproclimit=2 -pubkey="pubkeyburayagirilecek" &
+```
 
-**Ve artık mining halde çalışıyor sunucumuz.** 
+## Ve artık mining halde çalışıyor sunucumuz. 
 
-**mining dökümlerinize aşağıdaki kodları kullanarak ulaşabilirsiniz.**
+## mining dökümlerinize aşağıdaki kodları kullanarak ulaşabilirsiniz. 
 
 ```
 ./komodo-cli -ac_name=MARMARATEST getinfo
-./komodo-cli -ac_name=MARMARATEST marmarainfo 0 0 0 0 //to get details
+./komodo-cli -ac_name=MARMARATEST marmarainfo 0 0 0 0 pubkey (to get details)
 ```
 
-**Marmara Chaini farklı modlarda çalıştırma  seçenekleri.**
+## Marmara Chaini farklı modlarda çalıştırma  seçenekleri. 
 
 ```
 -genproclimit=-1 Şayet -1 yaparsanız tüm işlemci (CPU) günü kullanır.
@@ -156,9 +171,7 @@ Aşağıki komutu kullanarak çalıştırabilirsiniz. aşağıda ki "-pubkey=pub
 
 ```
 
-----------------------------------------------------------------------------
-
-**Not : Sunucu kapanma durumunda yapılacaklar.**
+## Not : Sunucu kapanma durumunda yapılacaklar. 
 
 ```
 cd /komodo/src
@@ -167,5 +180,14 @@ cd /komodo/src
 ```
 
 
-İletişim (Contact) B. Gültekin Çetiner http://twitter.com/drcetiner & ~Paro, (c) 2019
+## İletişim (Contact) 
+B. Gültekin Çetiner http://twitter.com/drcetiner & ~Paro, (c) 2019
 
+
+
+---
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
