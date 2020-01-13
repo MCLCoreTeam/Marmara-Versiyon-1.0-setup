@@ -92,7 +92,9 @@ src klasorümüze girelim.
   
 chaine ilk startımızı verelim.
 
-```./komodod -ac_name=MARMARATEST -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &```
+```
+./komodod -ac_name=MARMARATEST -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &
+```
 
 **ardından bir wallet adresi oluşturup not alınız.**
 
