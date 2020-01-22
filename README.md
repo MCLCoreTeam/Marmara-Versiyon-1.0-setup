@@ -13,16 +13,17 @@
 
 ![MarmaraCreditLoop Logo](https://raw.githubusercontent.com/marmarachain/Marmara-v.1.0/marmara-specific/marmara_coin_logo.png "Marmara Credit Loop Logo")
 
+### Explanation 
+Pay attention to the requirements. otherwise, it may fail in server properties that do not meet the requirements. Errors and damages on these servers are the responsibility of the user.
+```
+Requirements:
+Min. 4 GB Free RAM
+Min. 2 CPUs
+OS : Ubuntu 16.04 LTS x86_64
+```
+## Marmara v.1.0 setup and docs.
 
-## Marmara v.1.0 Kurulumu
-
-Kurulum sonrası Kredi Döngüsü yapabilmek ve test edebilmek için aşağıdaki dökümanı ziyaret edebilirsiniz.
-https://github.com/marmarachain/Marmara-v.1.0-setup/issues/1
-
-
-## Marmara v.1.0 Kurulumu ve kullanım dökümanı
-----------------------------------------------------------------------------
-## 1. kısım - Install the dependency packages 
+## 1. step - Install the dependency packages 
 ```	sudo apt-get update
 	sudo apt-get upgrade -y
 	sudo apt install ufw
@@ -33,7 +34,7 @@ https://github.com/marmarachain/Marmara-v.1.0-setup/issues/1
 	sudo apt-get install build-essential pkg-config libc6-dev m4 g++-multilib autoconf libtool ncurses-dev unzip git python zlib1g-dev wget bsdmainutils automake libboost-all-dev libssl-dev libprotobuf-dev protobuf-compiler libgtest-dev libqt4-dev libqrencode-dev libdb++-dev ntp ntpdate software-properties-common curl clang libcurl4-gnutls-dev cmake clang -y
 	sudo apt-get install libsodium-dev
 ```
-## 2. kısım - Install nanomsg 
+## 2. step - Install nanomsg 
 ```	
 2. kısım
 	Install nanomsg
@@ -57,7 +58,7 @@ https://github.com/marmarachain/Marmara-v.1.0-setup/issues/1
 	sudo ldconfig
 	
 ```
-## 3. kısım - Change swap size on to 4GB (Ubuntu) 
+## 3. step - Change swap size on to 4GB (Ubuntu) 
 	
 ```
 	sudo swapon --show
@@ -75,55 +76,61 @@ https://github.com/marmarachain/Marmara-v.1.0-setup/issues/1
 	echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 ```
 
-## 4 .kısım 
+## 4 .step 
 ```	sudo sysctl vm.swappiness=10 
 	This setting will persist until the next reboot. We can set this value automatically at restart by adding the line to our /etc/sysctl.conf file:
 	sudo nano /etc/sysctl.conf 
 	vm.swappiness=10
-	sudo ufw allow 35832
-	sudo ufw allow 35833
+	sudo ufw allow 33824
 ```
 
 	
-## 5. kısım - Installing Komodo	
+## 5. step - Installing Komodo	
 ```
 	cd 
-	git clone https://github.com/marmarachain/Marmara-v.1.0 komodo --branch FSM --single-branch
+	git clone https://github.com/marmarachain/Marmara-v.1.0 komodo --branch marmara-specific --single-branch
 	cd komodo
 	./zcutil/fetch-params.sh
 	./zcutil/build.sh -j$(nproc)
 
 ```
+*** Note: The installation process takes 20 to 45 minutes.
 
-**Bu sıralamadan sonra her şey normal çalışır vaziyette olacaktır. Marmara Chain sorunsuz vaziyette kullanabilirsiniz.**
-----------------------------------------------------------------------------
+### After the setup, you are ready to use MCL blockchain
+---
+Start at staking mode by getting wallet address and pubkey
 
-Wallet adresi ve Pubkey alıp - pubkey ile Staking mod da başlatma.
+### Start the chain.
 
-## chain e start verelim. 
+Go to src folder.
 
-src klasorümüze girelim.
-
-`cd ~/komodo/src`
+```
+cd ~/komodo/src
+```
   
-## chaine ilk startımızı verelim.
+### Start the chain firstly.
 
-`./komodod -ac_name=MARMARATEST -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &`
+```
+./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -pubkey="pubkey to enter here" &
+```
 
-## ardından bir wallet adresi oluşturup not alınız. 
+### then create a wallet address and write down this wallet address. 
 
-`./komodo-cli -ac_name=MARMARATEST getnewaddress`
+```
+./komodo-cli -ac_name=MCL getnewaddress
+```
 
-## örnek wallet adresi 
+### Wallet address sample 
+```
+RJajZNoEcCRD5wduqt1tna5DiLqiBC23bo
+```
 
-`RJajZNoEcCRD5wduqt1tna5DiLqiBC23bo`
+### To confirm this wallet address and then create the pubkey, Text this wallet address in quotation marks , “Enter your wallet address here” secion.
+```
+./komodo-cli -ac_name=MCL validateaddress "Enter your wallet address here"
+```
 
-## oluşturulan wallet adresini alttaki komuttaki "wallet-adresi" yazan kısma girip enter'a basıyoruz 
-
-`./komodo-cli -ac_name=MARMARATEST validateaddress "wallet-adresi"`
-
-
-## bu şekilde çıktı alacaksınız. ve burada yazan pubkey i de not alınız. 
+### you will get the output like below. and then, write down also the pubkey that written here.
 ```
 {
 	": true,
@@ -139,51 +146,95 @@ src klasorümüze girelim.
 }
 ```
 
- oluşturulan pubkeyi niz : 03a3f641c4679c579b20c597435e8a32d50091bfc56e28303f5eb26fb1cb1eee72
+this is the your pubkey : `03a3f641c4679c579b20c597435e8a32d50091bfc56e28303f5eb26fb1cb1eee72`
 
-## Chaini  durduruyoruz. 
+### Stop the  chain.
 ```
-./komodo-cli -ac_name=MARMARATEST stop
-```
-## Sırada pubkeyimizi kullanarak chain i Mining modun da çalıştırmak. 
-
-Aşağıki komutu kullanarak çalıştırabilirsiniz. aşağıda ki "-pubkey=pubkeyburayagirilecek"  kısma not aldığınız pubkeyi giriniz. ve alttaki komut satırını düzenledikten sonra "cd komodo/src" klasorüne girip yapıştırın.
-	
-```
-./komodod -ac_name=MARMARATEST -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -gen -genproclimit=2 -pubkey="pubkeyburayagirilecek" &
+./komodo-cli -ac_name=MCL stop
 ```
 
-## Ve artık mining halde çalışıyor sunucumuz. 
+### next step is the runing to chain in mining mode by using your own pubkey.
 
-## mining dökümlerinize aşağıdaki kodları kullanarak ulaşabilirsiniz. 
-
+You can run it by using following command. text your pubkey to the area "-pubkey="pubkey to enter here" and then, copy to all command and then, when it is at "cd komodo/src" , paste it and click "enter"
 ```
-./komodo-cli -ac_name=MARMARATEST getinfo
-./komodo-cli -ac_name=MARMARATEST marmarainfo 0 0 0 0 pubkey (to get details)
+./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -gen -genproclimit=-1 -pubkey="pubkey to enter here" &
 ```
 
-## Marmara Chaini farklı modlarda çalıştırma  seçenekleri. 
+### at the moment, our server starts to running as mining mode . 
+
+### you can reach your mining document by using codes below.
 
 ```
--genproclimit=-1 Şayet -1 yaparsanız tüm işlemci (CPU) günü kullanır.
--genproclimit=1  Şayet 1 yaparsanız tek işlemci kullanır 
--genproclimit=0  Şayet 0 yaparsanız Staking modunda çalışır ve Aktif coini kullanarak Staking yaparsınız.
+./komodo-cli -ac_name=MCL getinfo
+./komodo-cli -ac_name=MCL marmarainfo 0 0 0 0 pubkey (to get details)
+```
+
+### Options to operate the Marmara Chain in different modes are as follows;
+
+```
+-genproclimit=-1 Şayet -1 (If you make -1, all processor (cpu) use.)
+-genproclimit=1  Şayet 1  (If you make 1, single processor use.)
+-genproclimit=0  Şayet 0  (if you make 0, it run at Staking mode and you can do staking by using active coin.)
 
 ```
 
-## Not : Sunucu kapanma durumunda yapılacaklar. 
+### Not : Note: these are what to do in cases of server shutdown,  crashed, reset
 
 ```
 cd /komodo/src
-./komodo-cli -ac_name=MARMARATEST stop
-./komodod -ac_name=MARMARATEST -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -gen -genproclimit=2 -pubkey="pubkeyburayagirilecek" &
+./komodo-cli -ac_name=MCL stop
+./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -gen -genproclimit=-1 -pubkey="pubkey to enter here" &
+```
+---
+## MCL params.
+```	
+./komodo-cli -ac_name=MCL marmaracreditloop txid
+./komodo-cli -ac_name=MCL marmarainfo firstheight lastheight minamount maxamount [currency issuerpk]
+./komodo-cli -ac_name=MCL marmaraissue receiverpk amount currency matures approvaltxid
+./komodo-cli -ac_name=MCL marmaralock amount unlockht
+./komodo-cli -ac_name=MCL marmarapoolpayout perc firstheight "[[\"pubkey\":shares], ...]"
+./komodo-cli -ac_name=MCL marmarareceive senderpk amount currency matures batontxid
+./komodo-cli -ac_name=MCL marmarasettlement batontxid
+./komodo-cli -ac_name=MCL marmaratransfer receiverpk amount currency matures approvaltxid
+./komodo-cli -ac_name=MCL marmaraaddress
+./komodo-cli -ac_name=MCL marmarainfo 0 0 0 0 <pubkey> //to get details
+./komodo-cli -ac_name=MCL walletaddress amount
+```
+#### Backup your wallet
+
+We can not stress enough the importance of backing up your `wallet.dat` file.
+
+On Linux, the file is located here: `~/.komodo/MCL/wallet.dat`
+
+One method to backup this file is to archive a copy of the file.
+
+```bash
+# Copy the file
+cp -av ~/.komodo/MCL/wallet.dat ~/wallet.dat
+
+# Rename file
+mv ~/wallet.dat ~/2019-05-17-wallet_backup.dat
+
+# To make archive
+tar -czvf ~/2019-05-17-wallet_backup.dat.tgz ~/2019-05-17-wallet_backup.dat
+
+# Move the final file to a secure location
 ```
 
+### Now, You are ready to participate in MCL credit loops.
 
-## İletişim (Contact) 
-B. Gültekin Çetiner http://twitter.com/drcetiner & ~Paro, (c) 2019
+You can reach Marmara Credit Loop guide here.
+
+https://github.com/marmarachain/Marmara-Versiyon-1.0-setup/issues/1
 
 
+### contact :  
+B. Gültekin Çetiner http://twitter.com/drcetiner & ~Paro, (c) 2019  
+
+
+### Thanks for translation :  
+Betül Zengin  
+https://tr.linkedin.com/in/bet%C3%BCl-zengin-6839b816a
 
 ---
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -191,3 +242,4 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
