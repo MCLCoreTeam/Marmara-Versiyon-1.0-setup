@@ -11,7 +11,7 @@
 [![discord](https://img.shields.io/discord/412898016371015680)](https://discord.gg/NzpnAA)
 
 
-![MarmaraCreditLoop Logo](https://raw.githubusercontent.com/marmarachain/Marmara-v.1.0/master/marmara_coin_logo.png "Marmara Credit Loop Logo")
+![MarmaraCreditLoop Logo](https://raw.githubusercontent.com/marmarachain/Marmara-v.1.0/marmara-specific/marmara_coin_logo.png "Marmara Credit Loop Logo")
 
 
 ## Marmara v.1.0 Kurulumu
